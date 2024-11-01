@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>TechQuest</h1>
+    </header>
+    <div class="container">
+        <div id="pseudo-page" class="center-box">
+            <input type="text" id="username" placeholder="Entrez votre pseudo">
+            <button onclick="startQuiz()">Commencer le quiz</button>
+        </div>
+        <div id="instructions-page" class="center-box" style="display: none;">
+            <h1>Instructions du Quiz</h1>
+            <p class="intro-p">Ce quiz contient des questions sur l'informatique. Répondez-y avec soin !</p>
+            <button onclick="showQuestion()">Démarrer le Quiz</button>
+        </div>
+        <div id="quiz-page" class="center-box" style="display: none;">
+            <h1 id="question-title" class="question-title"></h1>
+            <div id="timer"></div>
+            <div id="question-content"></div>
+            <button onclick="nextQuestion()">Suivant</button>
+        </div>
+        <div id="end-page" class="center-box" style="display: none;">
+            <h1>Quiz terminé</h1>
+            <div id="final-score"></div>
+            <button onclick="sendScore()">Envoyer mon score</button>
+        </div>
+    </div>
+    <footer>
+        <p>Made with <3 by <code>douxxu</code></p>
+        <a href="https://github.com/douxxu/techquest" target="_blank">
+            <img src="images/github.png" alt="GitHub" style="width: 20px; height: 20px;">
+        </a>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

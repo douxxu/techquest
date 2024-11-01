@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2C2F33;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
+header {
+  background-color: #7289DA;
+  color: #FFFFFF;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+footer {
+  background-color: #23272A;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 10px;
+  border-radius: 0 0 8px 8px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.center-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.quiz-container {
+  background-color: #23272A;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 600px;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 1.5em;
+  color: #7289DA;
+}
+
+input[type="text"],
+select,
+input[type="radio"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #7289DA;
+  border-radius: 5px;
+  background-color: #40444B;
+  color: #FFFFFF;
+  font-size: 1em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="text"]:focus,
+select:focus {
+  outline: none;
+  border-color: #99AAB5;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #7289DA;
+  border: none;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 15px 0;
+}
+
+button:hover {
+  background-color: #5B6EAE;
+}
+
+#timer, #final-score {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.2em;
+}
+
+.drop-zone {
+  border: 2px dashed #7289DA;
+  border-radius: 5px;
+  padding: 10px;
+  min-height: 60px;
+  background-color: #40444B;
+  color: #FFFFFF;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.drag-item {
+  background-color: #7289DA;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: grab;
+}
+
+.answer-zone {
+  display: flex;
+  justify-content: space-between;
+}
+
+.drop-target {
+  border: 1px solid #99AAB5;
+  background-color: #23272A;
+  border-radius: 5px;
+  min-width: 80px;
+  min-height: 40px;
+  margin: 10px;
+  flex-grow: 1;
+}
+
+@media (max-width: 500px) {
+  .quiz-container {
+      width: 95%;
+  }
+}
+
+.question-content {
+  background-color: #2C2F33;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.question-title {
+  margin-bottom: 10px;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.question-paragraph {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.option {
+  background-color: #40444B;
+  border: 1px solid #7289DA;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.option input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #7289DA;
+}
+
+.option:hover {
+  background-color: #5B6E8D;
+}
+
+.fill-blank {
+  background-color: #40444B;
+  border: 1px solid #7289DA;
+  border-radius: 5px;
+  padding: 10px;
+  width: calc(100% - 22px);
+  margin: 10px 0;
+}
+
+.drag-item {
+  background-color: #40444B;
+  border: 1px solid #7289DA;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  cursor: move;
+}
+
+.drop-target {
+  background-color: #35393F;
+  border: 2px dashed #7289DA;
+  height: 40px;
+  margin: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-p {
+  border: 2px solid #7289DA;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #2C2F33;
+  color: #FFFFFF;
+  text-align: center;
+}
