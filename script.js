@@ -211,32 +211,47 @@ function displayMCQ(question) {
     question.options.forEach((option, index) => {
         let optionElement = document.createElement('div');
         optionElement.classList.add('option');
+        optionElement.textContent = option;
 
-        let radioInput = document.createElement('input');
-        radioInput.type = 'radio';
-        radioInput.name = 'mcq';
-        radioInput.value = index;
-
-        optionElement.appendChild(radioInput);
-
-        let label = document.createElement('label');
-        label.innerText = option;
-        optionElement.appendChild(label);
+        optionElement.addEventListener('click', () => {
+            selectOption(index);
+        });
 
         document.getElementById('question-content').appendChild(optionElement);
     });
 }
 
+let selectedOption = null;
+
+function selectOption(index) {
+    if (selectedOption !== null) {
+        const previouslySelected = document.querySelector('.option.selected');
+        if (previouslySelected) {
+            previouslySelected.classList.remove('selected');
+        }
+    }
+
+    selectedOption = index;
+    const currentSelected = document.querySelectorAll('.option')[index];
+    currentSelected.classList.add('selected');
+}
+
 
 function displayFillInTheBlank(question) {
+    let questionContainer = document.createElement('div');
+    questionContainer.classList.add('question-text');
+
+    let questionText = question.question;
+
     question.answer.forEach((_, index) => {
-        let input = document.createElement('input');
-        input.type = 'text';
-        input.placeholder = `Réponse ${index + 1}`;
-        input.classList.add('fill-blank');
-        document.getElementById('question-content').appendChild(input);
+        questionText = questionText.replace('___', `<span class="inline-input"><input type="text" placeholder="Réponse ${index + 1}" class="fill-blank"></span>`);
     });
+
+    questionContainer.innerHTML = questionText;
+
+    document.getElementById('question-content').appendChild(questionContainer);
 }
+
 
 function displayMatching(question) {
     let leftColumn = document.createElement('div');
@@ -290,7 +305,7 @@ function displayDragAndDrop(question) {
         dropTarget.addEventListener('drop', drop);
         
         let label = document.createElement('span');
-        label.innerText = `Déposer ici pour ${answer}`;
+        label.innerText = `${answer}`;
         dropTarget.appendChild(label);
 
         answerZone.appendChild(dropTarget);
@@ -313,7 +328,16 @@ function drop(event) {
     event.preventDefault();
     let data = event.dataTransfer.getData('text');
     event.target.innerText = data;
+    event.target.classList.add('filled');
+    let dragItems = document.querySelectorAll('.drag-item');
+    dragItems.forEach(item => {
+        if (item.innerText === data) {
+            item.style.visibility = 'hidden';
+        }
+    });
 }
+
+
 
 function startTimer() {
     timer = setInterval(() => {

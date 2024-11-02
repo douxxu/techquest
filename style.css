@@ -164,6 +164,14 @@ button:hover {
   flex-grow: 1;
 }
 
+.drop-target.filled {
+  background-color: #3b82f6;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #3b82f6;
+}
+
+
 @media (max-width: 500px) {
   .quiz-container {
       width: 95%;
@@ -190,33 +198,40 @@ button:hover {
 }
 
 .option {
-  background-color: #40444B;
-  border: 1px solid #7289DA;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
+  padding: 15px;
+  margin: 5px 0;
+  background-color: #36393f;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
   cursor: pointer;
-}
-
-.option input[type="radio"] {
-  margin-right: 10px;
-  accent-color: #7289DA;
+  transition: background-color 0.3s;
+  font-family: 'Whitney', 'Helvetica Neue', 'Segoe UI', sans-serif;
 }
 
 .option:hover {
-  background-color: #5B6E8D;
+  background-color: #40444b;
+}
+
+.option.selected {
+  background-color: #7289da;
+  color: white;
+}
+
+
+.inline-input {
+  display: inline;
+  margin: 0 5px;
 }
 
 .fill-blank {
-  background-color: #40444B;
-  border: 1px solid #7289DA;
-  border-radius: 5px;
-  padding: 10px;
-  width: calc(100% - 22px);
-  margin: 10px 0;
+  width: 100px;
+  padding: 5px;
+  display: inline;
+  vertical-align: middle;
 }
+
+
 
 .drag-item {
   background-color: #40444B;
