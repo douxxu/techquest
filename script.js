@@ -21,10 +21,9 @@ let questions = [
         answer: ['fabriqué', '1945']
     },
     {
-        type: 'mcq',
-        question: 'Quel est le nom du premier ordinateur électronique programmable, créé pendant la Seconde Guerre mondiale ?',
-        options: ['ENIAC', 'Altair 8800', 'Apple I', 'Z3'],
-        answer: 0
+        type: 'truefalse',
+        question: 'Le premier ordinateur électronique programmable créé pendant la Seconde Guerre mondiale est l\'ENIAC.',
+        answer: true
     },
     {
         type: 'dragdrop',
@@ -43,10 +42,9 @@ let questions = [
         ]
     },
     {
-        type: 'mcq',
-        question: 'Qui est considéré comme le premier programmeur de l\'histoire ?',
-        options: ['Alan Turing', 'Charles Babbage', 'Ada Lovelace', 'Grace Hopper'],
-        answer: 2
+        type: 'truefalse',
+        question: 'Ada Lovelace est considérée comme la première programmeuse de l\'histoire.',
+        answer: true
     },
     {
         type: 'mcq',
@@ -56,8 +54,8 @@ let questions = [
     },
     {
         type: 'fill',
-        question: 'Complétez l’image : légendez l’URL en indiquant les parties manquantes (schéma d’URL montrant les parties “protocole”, “domaine”, “sous-domaine”, “chemin”).',
-        answer: ['Protocole', 'Domaine', 'Sous-domaine', 'Chemin']
+        question: 'Complétez : légendez l’URL en indiquant les parties manquantes.\nhttps://___.___/___',
+        answer: ['domaine', 'extension', 'chemin']
     },
     {
         type: 'dragdrop',
@@ -76,10 +74,9 @@ let questions = [
         ]
     },
     {
-        type: 'mcq',
-        question: 'Quel système d\'exploitation est symbolisé par une pomme ?',
-        options: ['Windows', 'macOS', 'Linux', 'MS-DOS'],
-        answer: 1
+        type: 'truefalse',
+        question: 'Le système d\'exploitation symbolisé par une pomme est macOS.',
+        answer: true
     },
     {
         type: 'mcq',
@@ -157,6 +154,7 @@ let questions = [
 ];
 
 
+
 let username = '';
 let score = 0;
 let questionIndex = 0;
@@ -198,7 +196,10 @@ function displayQuestion() {
             displayMatching(question);
         } else if (question.type === 'dragdrop') {
             displayDragAndDrop(question);
+        } else if (question.type === 'truefalse') {
+            displayTrueFalse(question);
         }
+        
 
         startTimer();
     } else {
@@ -258,9 +259,8 @@ function displayMatching(question) {
 
     question.pairs.forEach((pair, index) => {
         let pairContainer = document.createElement('div');
-        pairContainer.classList.add('pair-container'); // Nouveau conteneur pour chaque paire
+        pairContainer.classList.add('pair-container');
 
-        // Créer une bulle pour le texte
         let leftItem = document.createElement('div');
         leftItem.classList.add('match-bubble');
         leftItem.innerText = pair.left;
@@ -340,6 +340,36 @@ function drop(event) {
     });
 }
 
+function displayTrueFalse(question) {
+    const trueFalseContainer = document.createElement('div');
+    trueFalseContainer.classList.add('true-false-container');
+
+    const trueButton = document.createElement('button');
+    trueButton.classList.add('true-button');
+    trueButton.textContent = 'Vrai';
+    trueButton.addEventListener('click', () => {
+        checkTrueFalseAnswer(true);
+    });
+
+    const falseButton = document.createElement('button');
+    falseButton.classList.add('false-button');
+    falseButton.textContent = 'Faux';
+    falseButton.addEventListener('click', () => {
+        checkTrueFalseAnswer(false);
+    });
+
+    trueFalseContainer.appendChild(trueButton);
+    trueFalseContainer.appendChild(falseButton);
+    document.getElementById('question-content').appendChild(trueFalseContainer);
+}
+
+function checkTrueFalseAnswer(selectedAnswer) {
+    const question = questions[questionIndex];
+    if (selectedAnswer === question.answer) {
+        score += Math.max(timeRemaining * pointsPerSecond, minPoints);
+    }
+    nextQuestion();
+}
 
 
 function startTimer() {
