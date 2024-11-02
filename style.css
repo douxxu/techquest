@@ -262,3 +262,69 @@ button:hover {
   color: #FFFFFF;
   text-align: center;
 }
+
+
+#leaderboard {
+  background-color: #2c2f33;
+  color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  margin: 20px auto;
+}
+
+#leaderboard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#leaderboard th, #leaderboard td {
+  padding: 10px;
+  text-align: center;
+}
+
+#leaderboard th {
+  background-color: #23272a;
+}
+
+.gold {
+  background-color: #b5943e;
+}
+
+.silver {
+  background-color: #9c9c9c;
+}
+
+.bronze {
+  background-color: #7a4a29;
+}
+
+.blurple {
+  background-color: #5c7dfb;
+}
+
+.purple {
+  background-color: #6c5b95;
+}
+
+
+
+.tada {
+  position: absolute;
+  animation: fall 1s forwards;
+  font-size: 24px;
+}
+
+@keyframes fall {
+  to {
+      transform: translateY(100vh);
+      opacity: 0;
+  }
+}
+
+.falling-emojis {
+  position: absolute;
+  font-size: 50px; /* Size of the emojis */
+  pointer-events: none; /* Avoid interference with user interaction */
+}

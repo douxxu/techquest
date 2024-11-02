@@ -16,7 +16,9 @@
         </div>
         <div id="instructions-page" class="center-box" style="display: none;">
             <h1>Instructions du Quiz</h1>
-            <p class="intro-p">Ce quiz contient des questions sur l'informatique. Répondez-y avec soin !</p>
+            <p class="intro-p">Ce quiz contient des questions sur l'informatique. Répondez-y avec soin !<br>
+            Vous avez 20 secondes pour répondre à chaque question !<br>
+            Plus vous serez rapides, plus vous aurez de points!</p>
             <button onclick="showQuestion()">Démarrer le Quiz</button>
         </div>
         <div id="quiz-page" class="center-box" style="display: none;">
@@ -28,8 +30,10 @@
         <div id="end-page" class="center-box" style="display: none;">
             <h1>Quiz terminé</h1>
             <div id="final-score"></div>
-            <button onclick="sendScore()">Envoyer mon score</button>
+            <div id="leaderboard" style="margin-top: 20px;"></div>
         </div>
+        
+
     </div>
     <footer>
         <h2>WARNING: PRE-BETA VERSION 0</h2>

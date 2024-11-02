@@ -163,7 +163,7 @@ let questionIndex = 0;
 let timer;
 let pointsPerSecond = 5;
 let minPoints = 2;
-let timeRemaining = 45;
+let timeRemaining = 20;
 
 function startQuiz() {
     username = document.getElementById('username').value;
@@ -184,7 +184,6 @@ function showQuestion() {
 function displayQuestion() {
     clearTimeout(timer);
     document.getElementById('question-content').innerHTML = '';
-    timeRemaining = 10;
     document.getElementById('timer').innerText = `Temps restant : ${timeRemaining}s`;
 
     if (questionIndex < questions.length) {
@@ -413,14 +412,96 @@ function checkDragAndDropAnswer(question) {
 }
 
 function endQuiz() {
+    clearTimeout(timer);
     document.getElementById('quiz-page').style.display = 'none';
     document.getElementById('end-page').style.display = 'block';
     document.getElementById('final-score').innerText = `Votre score : ${score}`;
+    
+    submitScore(username, Math.floor(score));
 }
 
-function sendScore() {
-    fetch(`api/leaderboard.php?username=${username}&points=${score}`)
-        .then(response => response.text())
-        .then(data => alert('Score envoyé avec succès !'))
-        .catch(error => alert('Erreur d\'envoi du score'));
+
+function submitScore(username, points) {
+    fetch(`api/leaderboard.php?username=${encodeURIComponent(username)}&points=${points}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                displayLeaderboard(data.top_players, data.current_player);
+            } else {
+                console.error(data.error);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
+function displayLeaderboard(topPlayers, currentPlayer) {
+    const leaderboardContainer = document.getElementById('leaderboard');
+    leaderboardContainer.innerHTML = '';
+
+
+    const table = document.createElement('table');
+    
+    const headerRow = document.createElement('tr');
+    headerRow.innerHTML = '<th>Rang</th><th>Joueur</th><th>Score</th>';
+    table.appendChild(headerRow);
+
+    topPlayers.forEach((player, index) => {
+        const row = document.createElement('tr');
+        if (index === 0) {
+            row.classList.add('gold');
+        } else if (index === 1) {
+            row.classList.add('silver');
+        } else if (index === 2) {
+            row.classList.add('bronze');
+        } else if (index === 3) {
+            row.classList.add('blurple');
+        } else if (index === 4) {
+            row.classList.add('purple');
+        }
+
+        row.innerHTML = `<td>${index + 1}</td><td>${player.username}</td><td>${player.points}</td>`;
+        table.appendChild(row);
+    });
+
+    leaderboardContainer.appendChild(table);
+
+    if (currentPlayer.rank === 1) {
+        startEmojiFall();
+    }
+}
+
+function startEmojiFall() {
+    const emojiCount = 100;
+    const duration = 7000;
+    const containerHeight = window.innerHeight;
+
+    for (let i = 0; i < emojiCount; i++) {
+        const randomDelay = Math.random() * duration;
+        setTimeout(() => {
+            createFallingEmoji(containerHeight);
+        }, randomDelay);
+    }
+}
+
+function createFallingEmoji(containerHeight) {
+    const emoji = document.createElement('div');
+    emoji.innerHTML = '🎉';
+    emoji.classList.add('falling-emojis');
+    document.body.appendChild(emoji);
+
+    const startX = Math.random() * window.innerWidth;
+    emoji.style.left = `${startX}px`;
+    emoji.style.top = `-50px`;
+
+    const randomDuration = 3000 + Math.random() * 3000;
+    emoji.style.transition = `top ${randomDuration}ms linear`;
+    
+    setTimeout(() => {
+        emoji.style.top = `${containerHeight}px`;
+    }, 10);
+
+    setTimeout(() => {
+        emoji.remove();
+    }, randomDuration);
 }
