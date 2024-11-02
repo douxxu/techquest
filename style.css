@@ -359,3 +359,60 @@ button:hover {
   height: 100%;
   min-width: 150px;
 }
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.overlay {
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+#quiz-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.blurred-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  filter: blur(10px);
+  z-index: 0;
+}
+
+
+.gray-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.281);
+  z-index: 1;
+  pointer-events: none;
+}
+
+#question-title, #timer, #question-content, button {
+  position: relative;
+  z-index: 2;
+}
+
+.question-title, .question-paragraph, #timer, #final-score {
+  background-color: rgba(50, 50, 50, 0.7); /* Couleur grise avec transparence */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 10px; /* Espacement interne */
+  margin: 10px 0; /* Espacement externe */
+  z-index: 2; /* Assure que le texte soit au-dessus */
+}

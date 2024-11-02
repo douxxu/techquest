@@ -13,17 +13,20 @@ let questions = [
             'Charles Babbage',
             'Ada Lovelace',
             'Grace Hopper'
-        ]
+        ],
+        bgImage: 'images/Alan_Turing_pic.jpeg' // Image pour la question
     },
     {
         type: 'fill',
         question: 'Complétez: L\'ENIAC est considéré comme le premier ordinateur ___, et a été créé en ___ aux États-Unis.',
-        answer: ['fabriqué', '1945']
+        answer: ['fabriqué', '1945'],
+        bgImage: 'images/2._Le premier_ordinateur_(ENIAC,_1946).jpg' // Image pour la question
     },
     {
         type: 'truefalse',
         question: 'Le premier ordinateur électronique programmable créé pendant la Seconde Guerre mondiale est l\'ENIAC.',
-        answer: true
+        answer: true,
+        bgImage: 'images/2._Le_premier_ordinateur_(ENIAC,_1946).jpg' // Image pour la question
     },
     {
         type: 'dragdrop',
@@ -39,23 +42,27 @@ let questions = [
             'Altair 8800',
             'Hologrammes',
             'Serveurs en pierre médiévaux'
-        ]
+        ],
+        bgImage: 'images/Holograme.png' // Image pour la question
     },
     {
         type: 'truefalse',
         question: 'Ada Lovelace est considérée comme la première programmeuse de l\'histoire.',
-        answer: true
+        answer: true,
+        bgImage: 'images/Ada.png' // Image pour la question
     },
     {
         type: 'mcq',
         question: 'En quelle année a été lancé le premier ordinateur personnel, l\'Altair 8800 ?',
         options: ['1970', '1975', '1980', '1985'],
-        answer: 1
+        answer: 1,
+        bgImage: 'images/First PC.jpg' // Image pour la question
     },
     {
         type: 'fill',
         question: 'Complétez : légendez l’URL en indiquant les parties manquantes.\nhttps://___.___/___',
-        answer: ['domaine', 'extension', 'chemin']
+        answer: ['domaine', 'extension', 'chemin'],
+        bgImage: 'images/URL.jpg' // Image pour la question
     },
     {
         type: 'dragdrop',
@@ -71,24 +78,28 @@ let questions = [
             'macOS',
             'Linux',
             'Android'
-        ]
+        ],
+        bgImage: 'images/VR.jpg' // Image pour la question
     },
     {
         type: 'truefalse',
         question: 'Le système d\'exploitation symbolisé par une pomme est macOS.',
-        answer: true
+        answer: true,
+        bgImage: 'images/Apple_logo.png' // Image pour la question (Assurez-vous d'avoir l'image)
     },
     {
         type: 'mcq',
         question: 'En quelle année le premier ordinateur Macintosh a-t-il été commercialisé ?',
         options: ['1980', '1984', '1990', '1995'],
-        answer: 1
+        answer: 1,
+        bgImage: 'images/First_PC.jpg' // Image pour la question
     },
     {
         type: 'mcq',
         question: 'Quel était le nom du premier virus informatique connu ?',
         options: ['Creeper', 'Worm', 'Trojan', 'Backdoor'],
-        answer: 0
+        answer: 0,
+        bgImage: 'images/1er_virus.png' // Image pour la question
     },
     {
         type: 'match',
@@ -98,36 +109,42 @@ let questions = [
             { left: 'OS', right: 'Système permettant à un ordinateur de fonctionner' },
             { left: 'Licence logicielle', right: 'Droit d\'utilisation d\'un logiciel' },
             { left: 'IA', right: 'Technologie permettant aux machines d\'apprendre' }
-        ]
+        ],
+        bgImage: 'images/AI.jpeg' // Image pour la question (Assurez-vous d'avoir l'image)
     },
     {
         type: 'mcq',
         question: 'Quel langage de programmation est associé à un serpent ?',
         options: ['COBOL', 'Java', 'Python', 'Perl'],
-        answer: 2
+        answer: 2,
+        bgImage: 'images/Python.jpg' // Image pour la question
     },
     {
         type: 'mcq',
         question: 'Comment appelle-t-on les "sous-parties" d\'une URL ?',
         options: ['Extensions', 'Protocoles', 'Nœuds', 'Domaines'],
-        answer: 3
+        answer: 3,
+        bgImage: 'images/URL.jpg' // Image pour la question
     },
     {
         type: 'mcq',
         question: 'Dans l\'intelligence artificielle, quel terme désigne les algorithmes permettant d\'apprendre des données ?',
         options: ['Data mining', 'Machine learning', 'Deep learning', 'Neural coding'],
-        answer: 1
+        answer: 1,
+        bgImage: 'images/AI.jpeg' // Image pour la question (Assurez-vous d'avoir l'image)
     },
     {
         type: 'fill',
         question: 'Complétez: L’intelligence artificielle se base sur des algorithmes capables de ___ à partir des données, et d\'___ leur performance.',
-        answer: ['d’apprendre', 'd’améliorer']
+        answer: ['d’apprendre', 'd’améliorer'],
+        bgImage: 'images/AI_improvement.jpeg' // Image pour la question (Assurez-vous d'avoir l'image)
     },
     {
         type: 'mcq',
         question: 'Quel est le nom de la conférence de 1956 qui est considérée comme le point de départ de la recherche en intelligence artificielle ?',
         options: ['Turing Conference', 'Dartmouth Workshop', 'MIT AI Symposium', 'Stanford AI Lab'],
-        answer: 1
+        answer: 1,
+        bgImage: 'images/AI_conference.jpeg' // Image pour la question (Assurez-vous d'avoir l'image)
     },
     {
         type: 'match',
@@ -137,19 +154,22 @@ let questions = [
             { left: 'ENIAC', right: 'Première génération d\'ordinateurs' },
             { left: 'Python', right: 'Langage moderne' },
             { left: 'IA et robotique', right: 'Technologies avancées' }
-        ]
+        ],
+        bgImage: 'images/AI_robotics.jpeg' // Image pour la question (Assurez-vous d'avoir l'image)
     },
     {
         type: 'mcq',
         question: 'Quel terme désigne un logiciel protégé par des droits d’utilisation ?',
         options: ['Partagiciel', 'Licence', 'Open Source', 'Freeware'],
-        answer: 1
+        answer: 1,
+        bgImage: 'images/license.jpeg' // Image pour la question (Assurez-vous d'avoir l'image)
     },
     {
         type: 'mcq',
         question: 'Quel était l’objectif principal des premières recherches en IA ?',
         options: ['Aider les humains dans leurs tâches', 'Remplacer l’homme dans toutes ses tâches', 'Créer des machines autonomes', 'Développer un superordinateur'],
-        answer: 0
+        answer: 0,
+        bgImage: 'images/AI_research.png' // Image pour la question (Assurez-vous d'avoir l'image)
     }
 ];
 
@@ -181,12 +201,31 @@ function showQuestion() {
 
 function displayQuestion() {
     clearTimeout(timer);
+    timeRemaining = 20;
     document.getElementById('question-content').innerHTML = '';
     document.getElementById('timer').innerText = `Temps restant : ${timeRemaining}s`;
 
     if (questionIndex < questions.length) {
         let question = questions[questionIndex];
         document.getElementById('question-title').innerText = question.question;
+
+        const quizPage = document.getElementById('quiz-page');
+
+        let bgImageElement = document.querySelector('.blurred-bg-image');
+        let overlayElement = document.querySelector('.gray-overlay');
+        if (bgImageElement) bgImageElement.remove();
+        if (overlayElement) overlayElement.remove();
+
+        if (question.bgImage) {
+            bgImageElement = document.createElement('div');
+            bgImageElement.classList.add('blurred-bg-image');
+            bgImageElement.style.backgroundImage = `url(${question.bgImage})`;
+            quizPage.prepend(bgImageElement);
+
+            overlayElement = document.createElement('div');
+            overlayElement.classList.add('gray-overlay');
+            quizPage.prepend(overlayElement);
+        }
 
         if (question.type === 'mcq') {
             displayMCQ(question);
@@ -199,13 +238,14 @@ function displayQuestion() {
         } else if (question.type === 'truefalse') {
             displayTrueFalse(question);
         }
-        
 
         startTimer();
     } else {
         endQuiz();
     }
 }
+
+
 
 function displayMCQ(question) {
     question.options.forEach((option, index) => {
