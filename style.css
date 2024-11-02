@@ -220,16 +220,19 @@ button:hover {
 
 
 .inline-input {
-  display: inline;
-  margin: 0 5px;
+  display: inline-block;
+  margin: 0 2px;
 }
 
 .fill-blank {
-  width: 100px;
-  padding: 5px;
+  width: 50px;
   display: inline;
   vertical-align: middle;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
 }
+
 
 
 
@@ -325,6 +328,34 @@ button:hover {
 
 .falling-emojis {
   position: absolute;
-  font-size: 50px; /* Size of the emojis */
-  pointer-events: none; /* Avoid interference with user interaction */
+  font-size: 50px;
+  pointer-events: none;
+}
+
+.match-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pair-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  height: 50px;
+  width: 100%; 
+}
+
+.match-bubble {
+  background-color: #7289DA;
+  border-radius: 15px;
+  padding: 5px 10px; 
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.match-select {
+  flex-grow: 1;
+  height: 100%;
+  min-width: 150px;
 }

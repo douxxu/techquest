@@ -17,8 +17,8 @@ let questions = [
     },
     {
         type: 'fill',
-        question: 'Complétez la phrase suivante : L\'ENIAC est considéré comme le premier ordinateur ___, et a été créé en ___ aux États-Unis.',
-        answer: ['électronique', '1945']
+        question: 'Complétez: L\'ENIAC est considéré comme le premier ordinateur ___, et a été créé en ___ aux États-Unis.',
+        answer: ['fabriqué', '1945']
     },
     {
         type: 'mcq',
@@ -123,7 +123,7 @@ let questions = [
     },
     {
         type: 'fill',
-        question: 'Complétez la phrase : L’intelligence artificielle se base sur des algorithmes capables de ___ à partir des données, et d\'___ leur performance.',
+        question: 'Complétez: L’intelligence artificielle se base sur des algorithmes capables de ___ à partir des données, et d\'___ leur performance.',
         answer: ['d’apprendre', 'd’améliorer']
     },
     {
@@ -134,7 +134,7 @@ let questions = [
     },
     {
         type: 'match',
-        question: 'Reliez chaque concept à sa période :',
+        question: 'Associez chaque concept à sa période :',
         pairs: [
             { left: 'Machine de Babbage', right: 'Mécanique' },
             { left: 'ENIAC', right: 'Première génération d\'ordinateurs' },
@@ -253,33 +253,37 @@ function displayFillInTheBlank(question) {
 
 
 function displayMatching(question) {
-    let leftColumn = document.createElement('div');
-    leftColumn.classList.add('match-column');
-
-    let rightColumn = document.createElement('div');
-    rightColumn.classList.add('match-column');
+    let matchContainer = document.createElement('div');
+    matchContainer.classList.add('match-container');
 
     question.pairs.forEach((pair, index) => {
+        let pairContainer = document.createElement('div');
+        pairContainer.classList.add('pair-container'); // Nouveau conteneur pour chaque paire
+
+        // Créer une bulle pour le texte
         let leftItem = document.createElement('div');
-        leftItem.classList.add('match-item');
+        leftItem.classList.add('match-bubble');
         leftItem.innerText = pair.left;
-        leftColumn.appendChild(leftItem);
 
         let rightItem = document.createElement('select');
         rightItem.classList.add('match-select');
         rightItem.dataset.index = index;
+
         question.pairs.forEach(option => {
             let optionElement = document.createElement('option');
             optionElement.value = option.right;
             optionElement.text = option.right;
             rightItem.appendChild(optionElement);
         });
-        rightColumn.appendChild(rightItem);
+
+        pairContainer.appendChild(leftItem);
+        pairContainer.appendChild(rightItem);
+        matchContainer.appendChild(pairContainer);
     });
 
-    document.getElementById('question-content').appendChild(leftColumn);
-    document.getElementById('question-content').appendChild(rightColumn);
+    document.getElementById('question-content').appendChild(matchContainer);
 }
+
 
 function displayDragAndDrop(question) {
     let dropZone = document.createElement('div');
