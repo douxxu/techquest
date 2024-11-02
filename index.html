@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header>
@@ -14,6 +14,13 @@
             <input type="text" id="username" placeholder="Entrez votre pseudo">
             <button onclick="startQuiz()">Commencer le quiz</button>
         </div>
+        <div id="mobile-warning" style="display: none;">
+            <div class="message">
+                <h1>Vous savez, c'est vrm ch***t de faire du responsive, et on a des pcs non ?
+                <br>En gros, revenez sur votre pc!
+                </h1>
+            </div>
+        </div>        
         <div id="instructions-page" class="center-box" style="display: none;">
             <h1>Instructions du Quiz</h1>
             <p class="intro-p">Ce quiz contient des questions sur l'informatique. Répondez-y avec soin !<br>
@@ -44,6 +51,7 @@
             <img src="images/github.png" alt="GitHub" style="width: 20px; height: 20px;">
         </a>
     </footer>
-    <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/no-mobile.js"></script>
 </body>
 </html>
