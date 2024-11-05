@@ -25,7 +25,7 @@ Pour installer et exécuter le projet sur votre machine locale, vous devez suivr
 
 1. **Cloner le dépôt :**
    ```bash
-   git clone https://github.com/votre-utilisateur/techquest.git
+   git clone https://github.com/douxxu/techquest.git
    cd techquest
    ```
 
