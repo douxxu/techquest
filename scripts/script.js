@@ -496,7 +496,7 @@ function endQuiz() {
 
 
 function submitScore(username, points) {
-    fetch(`api/leaderboard.php?username=${encodeURIComponent(username)}&points=${points}`)
+    fetch(`https://techquest.work/api/leaderboard.php?username=${encodeURIComponent(username)}&points=${points}`)
         .then(response => response.json())
         .then(data => {
             if (data.ok) {
