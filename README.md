@@ -1,6 +1,7 @@
 # TechQuest.work
+School project  
+  
+[Website link](https://techquest.work)  
+[Project doc](DOC.md)
 
-[Lien du site web](https://techquest.work)
-[Documentation du projet](DOC.md)
-
-Licensé sous GPL-3.0
+Licensed under GPL-3.0
