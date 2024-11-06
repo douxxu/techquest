@@ -148,7 +148,7 @@ Ce code génère des éléments HTML pour chaque option de réponse d'une questi
 
 ### Envoi des scores
 
-Une fois le quiz terminé, les scores sont envoyés à un serveur externe via une requête `fetch` :
+Une fois le quiz terminé, les scores sont envoyés au fichier php (api/leaderboard.php) via une requête `fetch` :
 
 ```javascript
 function submitScore(username, points) {
@@ -183,6 +183,29 @@ Oui, vous pouvez ajouter de nouvelles questions dans le tableau `questions`. Cha
 
 Les scores sont affichés à la fin du quiz, dans le classement des meilleurs joueurs. Si vous avez un bon score, vous serez en tête du classement !
 
+### Comment donner les informations de login de la base de données ?
+
+Il suffit de placer un fichier 'secrets.php' dans un répértoire utils/ se situant dans le répértoire api/ (api/utils/secrets.php).  
+Ex. de structure:  
+```
+├── leaderboard.php
+└── utils
+    └── secrets.php
+```
+
+Il faut ensuite placer les informations de la base de données à l'interieur du fichier.  
+Ex. de données:  
+```
+<?php
+define("DB_SERVER", "127.0.0.1");
+define("DB_PORT", 3306);
+define("DB_USERNAME", "xxxx");
+define("DB_PWD", "xxxx");
+define("DB_NAME", "xxxx");
+?>
+```
+Leaderboard.php crééra automatiquement la table dans la base de données.
+   
 ## Contribuer
 
 Si vous souhaitez contribuer à ce projet, n'hésitez pas à forker le dépôt, créer une nouvelle branche, et soumettre une pull request avec vos améliorations ou ajouts de fonctionnalités.
