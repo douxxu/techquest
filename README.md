@@ -16,7 +16,7 @@ cd techquest
 ```
 4. Use floppy-qr to compile the qr codes into a zip file
 ```sh
-floppy-qr load "qr codes"
+floppy-qr load qr_codes
 ```
 
 ---
